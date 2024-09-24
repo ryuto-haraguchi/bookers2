@@ -1,0 +1,9 @@
+<h2>edit page</h2>
+
+<%= form_with model: @user do |f| %>
+<p>Name</p>
+<%= f.text_field :name, autofocus: true %>
+<p>Introduction</p>
+<%= f.text_area :introduction %>
+<%= f.submit "Update" %>
+<% end %>
