@@ -1,11 +1,1 @@
-<h2>User info</h2>
-
-<p>
-  name <%= @user.name %>
-</p>
-<p>
-  introduction <%= @user.introduction %>
-</p>
-<p>
-  <%= link_to "編集", edit_user_path(@user) %>
-</p>
+<%= render "user_info_new_book", user: @user %>
