@@ -3,13 +3,17 @@
     <h2>User info</h2>
     <%= image_tag @user.get_profile_image(100,100) %>
     <p>
-      name <%= current_user.name %>
+      name <%= @user.name %>
     </p>
     <p>
-      introduction <%= current_user.introduction %>
+      introduction <%= @user.introduction %>
     </p>
     <p>
-      <%= link_to "編集", edit_user_path(current_user) %>
+      <% if @user.id == current_user %>
+        <%= link_to "編集", edit_user_path(current_user) %>
+      <% else %>
+        <%= link_to "編集", users_path %>
+      <% end %>
     </p>
   </div>
   <div>

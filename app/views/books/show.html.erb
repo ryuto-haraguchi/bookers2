@@ -1,2 +1,33 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div>
+  <div>
+    <h2>User info</h2>
+    <p>
+      name <%= @book.user.name %>
+    </p>
+    <p>
+      introduction <%= @book.user.introduction %>
+    </p>
+    <p>
+      <%= link_to "編集", edit_user_path(current_user) %>
+    </p>
+  </div>
+  <div>
+    <h2>New book</h2>
+    <%= form_with model: @book do |f| %>
+    <p>Title</p>
+    <%= f.text_field :title %>
+    <p>Opinion</p>
+    <%= f.text_area :body %>
+    <%= f.submit "Create Book" %>
+    <% end %>
+  </div>
+</div>
+
+<div>
+  <h2>Book detail</h2>
+  <ul><%= image_tag @book.user.get_profile_image(100, 100) %></ul>
+  <ul><%= link_to @book.user.name, user_path(@book.user.id) %></ul>
+  <ul><%= link_to @book.title, book_path(@book.id) %></ul>
+  <ul><%= @book.body %></ul>
+</div>
+
