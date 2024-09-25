@@ -2,10 +2,10 @@
   <div>
     <h2>User info</h2>
     <p>
-      name <%= @book.user.name %>
+      name <%= @book_user.user.name %>
     </p>
     <p>
-      introduction <%= @book.user.introduction %>
+      introduction <%= @book_user.user.introduction %>
     </p>
     <p>
       <%= link_to "編集", edit_user_path(current_user) %>
@@ -25,9 +25,13 @@
 
 <div>
   <h2>Book detail</h2>
-  <ul><%= image_tag @book.user.get_profile_image(100, 100) %></ul>
-  <ul><%= link_to @book.user.name, user_path(@book.user.id) %></ul>
-  <ul><%= link_to @book.title, book_path(@book.id) %></ul>
-  <ul><%= @book.body %></ul>
+  <ul>
+      <%= link_to user_path(@book_user.id) do %>
+        <%= image_tag @book_user.user.get_profile_image(100, 100) %>
+        <%= @book_user.user.name %>
+      <% end %>
+  </ul>
+  <ul><%= link_to @book_user.title, book_path(@book_user.id) %></ul>
+  <ul><%= @book_user.body %></ul>
 </div>
 

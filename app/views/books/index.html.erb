@@ -29,7 +29,7 @@
   <p>Opinion</p>
   <% @books.each do |book| %>
   <ul><%= image_tag book.user.get_profile_image(100, 100) %></ul>
-  <ul><%= link_to book.title, book_path(book.id) %></ul>
+  <ul><%= link_to book.title, book_path(book.user.id) %></ul>
   <ul><%= book.body %></ul>
   <% end %>
 </div>
