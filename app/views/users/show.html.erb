@@ -1,1 +1,34 @@
-<%= render "user_info_new_book", user: @user %>
+<div>
+  <div>
+    <h2>User info</h2>
+    <p>
+      name <%= current_user.name %>
+    </p>
+    <p>
+      introduction <%= current_user.introduction %>
+    </p>
+    <p>
+      <%= link_to "編集", edit_user_path(current_user) %>
+    </p>
+  </div>
+  <div>
+    <h2>New book</h2>
+    <%= form_with model: @book do |f| %>
+    <p>Title</p>
+    <%= f.text_field :title %>
+    <p>Opinion</p>
+    <%= f.text_area :body %>
+    <%= f.submit "Create Book" %>
+    <% end %>
+  </div>
+</div>
+
+<div>
+  <h2>Books</h2>
+  <p>Title</p>
+  <p>Opinion</p>
+  <% @books.each do |books| %>
+  <ul><%= books.title %></ul>
+  <ul><%= books.body %></ul>
+  <% end %>
+</div>

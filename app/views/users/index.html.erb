@@ -24,11 +24,12 @@
 </div>
 
 <div>
-  <h2>Books</h2>
-  <p>Title</p>
-  <p>Opinion</p>
-  <% @books.each do |book| %>
-  <ul><%= book.title %></ul>
-  <ul><%= book.body %></ul>
+  <h2>Users</h2>
+  <p>image</p>
+  <p>name</p>
+  <% @users.each do |users| %>
+  <ul><%= users.name %></ul>
+  <ul><%= users.introduction %></ul>
+  <ul><%= link_to "Show", user_path(users.id) %></ul>
   <% end %>
 </div>
