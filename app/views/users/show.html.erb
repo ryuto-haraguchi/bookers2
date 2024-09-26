@@ -33,7 +33,7 @@
   <p>Title</p>
   <p>Opinion</p>
   <% @books.each do |books| %>
-  <ul><%= books.title %></ul>
+  <%= link_to books.title, book_path(books.id) %>
   <ul><%= books.body %></ul>
   <% end %>
 </div>
