@@ -16,14 +16,6 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
 
   private
 

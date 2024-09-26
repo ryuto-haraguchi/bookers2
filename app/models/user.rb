@@ -20,4 +20,7 @@ class User < ApplicationRecord
         where(conditions.to_h).where(["name = :value", { value: name }]).first
       end
     end
+
+    validates :name, uniqueness: true, length: { minimum: 2, maximum: 20 }
+    validates :introduction, length: { maximum: 50 }
 end
