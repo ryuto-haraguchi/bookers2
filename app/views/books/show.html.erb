@@ -1,34 +1,11 @@
-<div>
-  <div>
-    <h2>User info</h2>
-    <p>
-      name <%= @book_user.user.name %>
-    </p>
-    <p>
-      introduction <%= @book_user.user.introduction %>
-    </p>
-    <p>
-      <%= link_to "編集", edit_user_path(current_user) %>
-    </p>
-  </div>
-  <div>
-    <h2>New book</h2>
-    <%= form_with model: @book do |f| %>
-    <p>Title</p>
-    <%= f.text_field :title %>
-    <p>Opinion</p>
-    <%= f.text_area :body %>
-    <%= f.submit "Create Book" %>
-    <% end %>
-  </div>
-</div>
+<%= render 'users/user_info_create_book', user: @user, book: @book %>
 
 <div>
   <h2>Book detail</h2>
   <ul>
-      <%= link_to user_path(@book_user.id) do %>
-        <%= image_tag @book_user.user.get_profile_image(100, 100) %>
-        <%= @book_user.user.name %>
+      <%= link_to user_path(@user.id) do %>
+        <%= image_tag @user.get_profile_image(100, 100) %>
+        <%= @user.name %>
       <% end %>
   </ul>
   <ul><%= link_to @book_user.title, book_path(@book_user.id) %></ul>
