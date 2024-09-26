@@ -12,3 +12,7 @@
   <ul><%= @book_user.body %></ul>
 </div>
 
+<% if @book_user.user == current_user %>
+  <%= link_to "Edit", edit_book_path(@book_user.id) %>
+  <%= link_to "Destroy", book_path(@book_user.id), method: :delete %>
+<% end %>
