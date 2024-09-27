@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      tbody tr:hover td {
+        background-color: #f8f9fa;
+    </style>
   </head>
 
   <body class = "d-flex flex-column vh-100">
@@ -72,7 +76,7 @@
     </header>
     <main class = "mt-4">
       <% flash.each do |message_type, message| %>
-        <%= message %>
+        <p class = "pb-1"><%= message %></p>
       <% end %>
       <%= yield %>
     </main>

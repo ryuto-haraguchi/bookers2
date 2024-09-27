@@ -1,18 +1,29 @@
-<%= render 'users/user_info_create_book', user: @user, book: @book %>
-
-<div>
-  <h2>Book detail</h2>
-  <ul>
-      <%= link_to user_path(@user.id) do %>
-        <%= image_tag @user.get_profile_image(100, 100) %>
-        <%= @user.name %>
-      <% end %>
-  </ul>
-  <ul><%= link_to @book_user.title, book_path(@book_user.id) %></ul>
-  <ul><%= @book_user.body %></ul>
+<div class = "container">
+  <div class = "row">
+    <%= render 'users/user_info_create_book', user: @user, book: @book %>
+    <div class = "col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class = "table">
+          <tr>
+            <td>
+              <%= link_to user_path(@user.id) do %>
+                <%= image_tag @user.get_profile_image(100, 100) %></br>
+                <%= @user.name %>
+              <% end %>
+            </td>
+            <td><%= link_to @book_user.title, book_path(@book_user.id) %></td>
+            <td><%= @book_user.body %></td>
+            <% if @book_user.user == current_user %>
+              <td><%= link_to "Edit", edit_book_path(@book_user.id) %></td>
+              <td><%= link_to "Destroy", book_path(@book_user.id), method: :delete %></td>
+            <% end %>
+          </tr>
+      </table>
+    </div>
+  </div>
 </div>
 
-<% if @book_user.user == current_user %>
-  <%= link_to "Edit", edit_book_path(@book_user.id) %>
-  <%= link_to "Destroy", book_path(@book_user.id), method: :delete %>
-<% end %>
+
+  
+  
+
