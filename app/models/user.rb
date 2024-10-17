@@ -20,6 +20,19 @@ class User < ApplicationRecord
         where(conditions.to_h).where(["name = :value", { value: name }]).first
       end
     end
+  
+  GUEST_USER_EMAIL = 'guest@example.com'
+
+    def self.guest
+      find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
+        user.password = SecureRandom.urlsafe_base64
+        user.name = 'ゲストユーザー'
+      end
+    end
+
+    def guest_user?
+      email == GUEST_USER_EMAIL
+    end
 
     validates :name, uniqueness: true, length: { minimum: 2, maximum: 20 }
     validates :introduction, length: { maximum: 50 }

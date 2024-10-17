@@ -18,11 +18,13 @@
         <th><%= user.introduction %></th>
       </tr>
     </table>
+    <% unless user.guest_user? %>
     <p>
       <%= link_to edit_user_path(user.id), class: "btn btn-outline-dark", style: "width: 100%;" do %>
       <i class="fa-solid fa-user-gear"></i>
       <% end %>
     </p>
+    <% end %>
     <h2>New book</h2>
     <%= form_with model: book do |f| %>
     <p>Title</p>
